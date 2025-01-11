@@ -1,0 +1,91 @@
+:root {
+  --color-accent: #7bcf83;  /* Define the color */
+}
+
+body {
+    /* Set line height to 1.5 times the font size
+         and use the OS’s UI font as the website font
+       */
+    font: 100%/1.5 system-ui; 
+    max-width: 100ch; /* Set the maximum width of the body */
+    margin-inline: auto;  /* Center the body */
+    padding: 10px;  /* Add some padding around the body */
+    accent-color: var(--color-accent); /* Set the accent color */
+  }
+
+ul, li {
+  display: contents; /* Make the list items display in a row */
+}
+
+nav {
+  display: flex; /* Make the nav items display in a row */
+  margin-bottom: 1em; /* Add some space below the nav */
+  border-bottom: 1px solid oklch(80% 3% 200); /* Add a border to the bottom of the nav */
+
+  a {
+    flex:1; /* Make the nav items take up equal space */
+    text-decoration: none;  /* Remove the underline from the links */
+    color: inherit; /* Use the color of the parent element */
+    text-align: center; /* Center the text */
+    padding:0.5em; /* Add some padding around the text */
+  }
+
+  a:hover {
+    border-bottom: 0.3em solid var(--color-accent); /* Add a border to the bottom of the link when it is hovered */
+    background-color: oklch(from var(--color-accent) 95% 5% h); /* Change the background color when the link is hovered */
+  }
+
+  .current {
+    font-weight: bold; /* Make the text bold */
+    border-bottom: 0.3em solid oklch(80% 3% 200); /* Add a border to the bottom of the link */
+  }
+}
+
+/* input, textarea, button {
+  font: inherit;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  margin-block: 10px;
+} */
+
+form {
+  display:grid;
+  grid-template-columns: auto 1fr;
+  gap: 1em; 
+  label {
+    grid-template-columns: subgrid;
+    /* grid-column: 1 / -1; */
+  }
+  button {
+    grid-column: 1 / -1;
+  }
+}
+
+.projects {
+  display:grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+
+  article {
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+h1 {
+  font-size: 3em;  /* 300% of body font size */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
