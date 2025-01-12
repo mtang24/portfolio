@@ -13,14 +13,14 @@ body {
     accent-color: var(--color-accent); /* Set the accent color */
   }
 
-ul, li {
-  display: contents; /* Make the list items display in a row */
-}
-
 nav {
   display: flex; /* Make the nav items display in a row */
   margin-bottom: 1em; /* Add some space below the nav */
   border-bottom: 1px solid oklch(80% 3% 200); /* Add a border to the bottom of the nav */
+
+  ul, li {
+    display: contents; /* Make the list items display in a row */
+  }
 
   a {
     flex:1; /* Make the nav items take up equal space */
@@ -84,8 +84,21 @@ h1 {
   font-size: 3em;  /* 300% of body font size */
 }
 
+h2 {
+  font-size: 2em;  /* 300% of body font size */
+}
+
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.1;
   text-wrap: balance;
 }
 
+.line {
+  display: flex;
+  justify-content: space-between; /*Align left and right*/
+  align-items: center; /* Vertically center content */
+}
+
+.title, .date {
+  margin: 0; /* Remove default margins on <h> tags */
+}
