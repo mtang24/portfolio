@@ -105,3 +105,21 @@ h1, h2, h3, h4, h5, h6 {
 .title, .date {
   margin: 0; /* Remove default margins on <h> tags */
 }
+
+.center {
+  text-align: center; /* Center text */
+  line-height: 1.5;
+
+  h2,
+  p {
+    margin: 0; /* Remove default margins on headings and paragraphs */
+    padding: 5px; /* Ensure no padding contributes to spacing */
+  }
+
+  .linkedin-link {
+    color: black; 
+    text-decoration: none
+  }
+}
+
+
