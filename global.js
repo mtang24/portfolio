@@ -5,11 +5,11 @@ function $$(selector, context = document) {
 }
 
 let pages = [
-  { url: 'index.html', title: 'Home' },
-  { url: 'projects/index.html', title: 'Projects' },
+  { url: '', title: 'Home' },
+  { url: 'projects/', title: 'Projects' },
   // add the rest of your pages here
-  { url: 'resume/index.html', title: 'Resume' },
-  { url: 'contact/index.html', title: 'Contact' },
+  { url: 'resume/', title: 'Resume' },
+  { url: 'contact/', title: 'Contact' },
   { url: 'https://github.com/mtang24', title: 'GitHub' },
 ];
 
