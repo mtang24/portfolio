@@ -14,9 +14,13 @@ body {
   }
 
 nav {
+  --border-color: oklch(50% 10% 200 / 40%);
+  /* border-bottom-color: var(--border-color); */
+
   display: flex; /* Make the nav items display in a row */
   margin-bottom: 1em; /* Add some space below the nav */
-  border-bottom: 1px solid oklch(80% 3% 200); /* Add a border to the bottom of the nav */
+  /* border-bottom: 1px solid oklch(80% 3% 200); Add a border to the bottom of the nav */
+  border-bottom: 1px solid var(--border-color); /* Add a border to the bottom of the nav */
 
   ul, li {
     display: contents; /* Make the list items display in a row */
@@ -32,7 +36,7 @@ nav {
 
   a:hover {
     border-bottom: 0.3em solid var(--color-accent); /* Add a border to the bottom of the link when it is hovered */
-    background-color: oklch(from var(--color-accent) 95% 5% h); /* Change the background color when the link is hovered */
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
   }
 
   .current {
@@ -101,9 +105,20 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   justify-content: space-between; /*Align left and right*/
   align-items: center; /* Vertically center content */
+
+  .title-link a {
+    margin: 0; /* Remove default margins on <h> tags */
+    color: inherit;
+    text-decoration: none;
+  }
+    
+  .title-link:hover a {
+    color: inherit;
+    text-decoration: underline;
+  }
 }
 
-.title, .date {
+.date {
   margin: 0; /* Remove default margins on <h> tags */
 }
 
@@ -118,9 +133,34 @@ h1, h2, h3, h4, h5, h6 {
   }
 
   .linkedin-link {
-    color: black; 
-    text-decoration: none
+    color: inherit;
+    text-decoration: none;
   }
+
+  .linkedin-link:hover {
+    text-decoration: underline;
+  }
+}
+
+html {
+  color-scheme: light dark;
+}
+
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  i {
+    margin-right: 6px; /* Adds space between the icon and "Theme:" text */
+  }
+}
+
+select {
+  font: inherit;
+  display: inline-block;
+  width: 85px;
+  box-sizing: border-box;
+  font-size: 80%;
 }
 
 
