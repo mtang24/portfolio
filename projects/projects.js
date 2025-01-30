@@ -1,5 +1,5 @@
 import { fetchJSON, renderProjects } from '../global.js';
-const projects = await fetchJSON('/lib/projects.json'); // Use absolute path
+const projects = await fetchJSON('../lib/projects.json'); // Use absolute path
 const projectsContainer = document.querySelector('.projects');  // Get the container element
 
 // Render the projects
