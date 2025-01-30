@@ -162,3 +162,19 @@ select {
   box-sizing: border-box;
   font-size: 80%;
 }
+
+#profile-stats dl {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);  /* 4 equal columns */
+  grid-template-rows: auto auto;          /* Two rows */
+  gap: 10px;                              /* Optional gap between grid items */
+}
+
+#profile-stats dt {
+  font-weight: bold; /* Make the text bold */
+  grid-row: 1;  /* Places <dt> items in the first row */
+}
+
+#profile-stats dd {
+  grid-row: 2;  /* Places <dd> items in the second row */
+}

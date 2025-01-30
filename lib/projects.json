@@ -1,0 +1,74 @@
+[
+    {
+        "title": "Truthful vs Deceptive Data Visualizations",
+        "year": "2025",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+        "title": "Expository Data Viz on Climate Data",
+        "year": "2025",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+        "title": "Power Outage Data Analysis",
+        "year": "2024",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "This data analysis investigates what influences the cause and duration of major U.S. power outages. We used historical data from January 2000 to July 2016 to uncover trends and understand how we can inform more resilient infrastructure planning."
+    },
+    {
+        "title": "Online Shopping Consumer Behavior Data Analysis",
+        "year": "2024",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "The goal of the analysis was to explore how the time of a consumer's visit to an e-commerce website could be associated with the number of marketing tactics used on a product page."
+    },
+    {
+        "title": "Annual Air Pollution Predictive Modeling",
+        "year": "2024",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+        "title": "Spotify Charts Data Analysis",
+        "year": "2024",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+        "title": "Credit Card Machine Learning Analysis",
+        "year": "2024",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+        "title": "Convolutional Neural Networks Study",
+        "year": "2024",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+        "title": "Parking and Traffic Data Analysis",
+        "year": "2023",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+        "title": "Supervised Machine Learning Empirical Study",
+        "year": "2023",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+        "title": "Design Methodology Analysis",
+        "year": "2023",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    },
+    {
+        "title": "Software Tool Tutorials",
+        "year": "2022",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+    }
+]
