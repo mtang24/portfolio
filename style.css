@@ -198,6 +198,7 @@ select {
   background-color: #dedddfdc; /* Set your desired background color here */
   grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
 }
+
 .legend .swatch {
   aspect-ratio: 1 / 1;
   background-color: var(--color);
@@ -219,9 +220,12 @@ select {
   }
 }
 
-
 .container {
   display: flex;
   align-items: center;
   gap: 100px;
+}
+
+.hidden {
+  display: none;
 }
