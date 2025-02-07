@@ -178,3 +178,50 @@ select {
 #profile-stats dd {
   grid-row: 2;  /* Places <dd> items in the second row */
 }
+
+#projects-plot {
+  max-width: 20em;
+  margin-block: 2em;
+
+  /* Do not clip shapes outside the viewBox */
+  overflow: visible;
+}
+
+.legend {
+  display: grid;
+  flex: 1;
+  gap: 1em;
+  border: 1px solid #000; /* Add a border around the legend */
+  padding: 1em; /* Add padding inside the legend */
+  margin: 1em 0; /* Add margin around the legend */
+  border-radius: 8px;
+  background-color: #dedddfdc; /* Set your desired background color here */
+  grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+}
+.legend .swatch {
+  aspect-ratio: 1 / 1;
+  background-color: var(--color);
+  border-radius: 50%;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  gap: 1em;
+  align-items: center;
+}
+
+.legend li {
+  display: flex;
+  gap: 0.5em;
+
+  em {
+    color: #4d4d4d; /* Set your desired color here */
+    font-style: italic; /* Make the text italic */
+  }
+}
+
+
+.container {
+  display: flex;
+  align-items: center;
+  gap: 100px;
+}
