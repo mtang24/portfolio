@@ -23,38 +23,10 @@ function applyYearStyles() {
 // Apply styles to the year elements on initial load
 applyYearStyles();
 
-// let data = [1, 2];
-// let total = 0;
-
-// for (let d of data) {
-//     total += d;
-//   }
-
-// let angle = 0;
-// let arcData = [];
-
-// for (let d of data) {
-//   let endAngle = angle + (d / total) * 2 * Math.PI;
-//   arcData.push({ startAngle: angle, endAngle });
-//   angle = endAngle;
-// }
-
-// let arcs = arcData.map((d) => arcGenerator(d));
-
 let query = '';
 let searchInput = document.querySelector('.searchBar');
 
-// searchInput.addEventListener('change', (event) => {
-//   // update query value
-//   query = event.target.value;
-//   // filter projects
-//   let filteredProjects = projects.filter((project) => {
-//     let values = Object.values(project).join('\n').toLowerCase();
-//     return values.includes(query.toLowerCase());
-//   });
-//   // render filtered projects
-//   renderProjects(filteredProjects, projectsContainer, 'h2');
-// });
+let selectedIndex = -1;
 
 // Refactor all plotting into one function
 function renderPieChart(projectsGiven) {
@@ -65,17 +37,18 @@ function renderPieChart(projectsGiven) {
     (v) => v.length,
     (d) => d.year,
   );
+
   // re-calculate data
   let newData = newRolledData.map(([year, count]) => {
     return { value: count, label: year }; // TODO
   });
+
   // re-calculate slice generator, arc data, arc, etc.
   let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
   let newSliceGenerator = d3.pie().value((d) => d.value);
   let newArcData = newSliceGenerator(newData);
   let newArcs = newArcData.map((d) => arcGenerator(d));
-
-  let colors = d3.scaleOrdinal(d3.schemeTableau10);
+  let colors = d3.scaleOrdinal(d3.schemePaired);
 
   // TODO: clear up paths and legends
   let newSVG = d3.select('svg'); 
@@ -97,6 +70,31 @@ function renderPieChart(projectsGiven) {
       .append('path')
       .attr('d', arc)
       .attr('fill', colors(idx)) // Fill in the attribute for fill color via indexing the colors variable
+      .on('click', () => {
+        selectedIndex = selectedIndex === idx ? -1 : idx;
+
+        newSVG
+          .selectAll('path')
+          .attr('class', (_, i) => (i === selectedIndex ? 'selected' : ''))
+          .attr('stroke', function(_, i) {
+            return i === selectedIndex ? d3.select(this).attr('fill') : null;
+          }); // Set stroke color to the fill color of the selected path
+
+        legendContainer
+          .selectAll('li')
+          .attr('class', (_, i) => (i === selectedIndex ? 'selected' : ''));
+
+        // Filter projects based on the selected wedge
+        if (selectedIndex === -1) {
+          renderProjects(projects, projectsContainer, 'h2');
+        } else {
+          const selectedYear = newData[selectedIndex].label;
+          const filteredProjects = projects.filter(project => project.year === selectedYear);
+          renderProjects(filteredProjects, projectsContainer, 'h2');
+        }
+
+        applyYearStyles(); // Reapply styles to the year elements
+      });
   })
 
   let legend = d3.select('.legend');
@@ -116,61 +114,9 @@ searchInput.addEventListener('change', (event) => {
     let values = Object.values(project).join('\n').toLowerCase();
     return values.includes(query.toLowerCase());
   });
-  // let filteredProjects = setQuery(event.target.value);
+
   // re-render legends and pie chart when event triggers
   renderProjects(filteredProjects, projectsContainer, 'h2');
   applyYearStyles(); // Reapply styles to the year elements
   renderPieChart(filteredProjects);
 });
-
-// searchInput.addEventListener('change', (event) => {
-//   // update query value
-//   query = event.target.value;
-//   // filter projects
-//   let filteredProjects = projects.filter((project) => {
-//     let values = Object.values(project).join('\n').toLowerCase();
-//     return values.includes(query.toLowerCase());
-//   });
-
-//   // d3 code
-//   let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
-//   let arc = arcGenerator({
-//       startAngle: 0,
-//       endAngle: 2 * Math.PI,
-//     });
-
-//   d3.select('svg').append('path').attr('d', arc).attr('fill', 'red');
-
-//   let rolledData = d3.rollups(
-//     filteredProjects,
-//     (v) => v.length,
-//     (d) => d.year,
-//   );
-
-//   let data = rolledData.map(([year, count]) => {
-//       return { value: count, label: year };
-//     });
-
-//   let sliceGenerator = d3.pie().value((d) => d.value);
-//   let arcData = sliceGenerator(data);
-//   let arcs = arcData.map((d) => arcGenerator(d));
-//   let colors = d3.scaleOrdinal(d3.schemeTableau10);
-
-//   arcs.forEach((arc, idx) => {
-//       d3.select('svg')
-//         .append('path')
-//         .attr('d', arc)
-//         .attr('fill', colors(idx)) // Fill in the attribute for fill color via indexing the colors variable
-//   })
-
-//   let legend = d3.select('.legend');
-//   data.forEach((d, idx) => {
-//       legend.append('li')
-//             .attr('style', `--color:${colors(idx)}`) // set the style attribute while passing in parameters
-//             .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // set the inner html of <li>
-//   })
-
-
-//   // render filtered projects
-//   renderProjects(filteredProjects, projectsContainer, 'h2');
-// });

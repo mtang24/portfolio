@@ -180,7 +180,7 @@ select {
 }
 
 #projects-plot {
-  max-width: 20em;
+  max-width: 17em;
   margin-block: 2em;
 
   /* Do not clip shapes outside the viewBox */
@@ -228,4 +228,26 @@ select {
 
 .hidden {
   display: none;
+}
+
+&:has(path:hover) {
+  path:not(:hover) {
+    opacity: 0.5;
+  }
+}
+
+path {
+  transition: 300ms;
+}
+
+.selected {
+  --color: #000000 !important;
+
+  &:is(path) {
+    fill: var(--color);
+  }
+}
+
+path {
+  cursor: pointer;
 }
