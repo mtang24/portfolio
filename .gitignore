@@ -1,0 +1,10 @@
+# Ignore package.json files
+package.json
+package-lock.json
+yarn.lock
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore .meta directory
+.meta/loc.csv

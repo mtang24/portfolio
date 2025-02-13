@@ -89,7 +89,7 @@ function renderPieChart(projectsGiven) {
           renderProjects(projects, projectsContainer, 'h2');
         } else {
           const selectedYear = newData[selectedIndex].label;
-          const filteredProjects = projectsGiven.filter(project => project.year === selectedYear);
+          const filteredProjects = projects.filter(project => project.year === selectedYear);
           renderProjects(filteredProjects, projectsContainer, 'h2');
         }
 

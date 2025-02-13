@@ -251,3 +251,51 @@ path {
 path {
   cursor: pointer;
 }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* Six equal columns */
+  gap: 2rem; /* Adjust spacing between items */
+  font-family: sans-serif;
+  margin-top: 20px;
+  text-align: left; /* Left-align text */
+  max-width: 100%;
+}
+
+.summary-header {
+  text-align: left; /* Left-align the header */
+  font-size: 1.5rem; /* Header font size */
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stats dt {
+  font-size: 0.75rem; /* Smaller font size */
+  font-weight: bold;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 5px;
+}
+
+.stats dd {
+  font-size: 1.25rem; /* Smaller font size */
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+}
+
+.gridlines {
+  color: #dadada
+}
+
+
+
+
+

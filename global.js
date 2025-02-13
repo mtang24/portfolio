@@ -10,6 +10,7 @@ let pages = [
   // add the rest of your pages here
   { url: 'resume/', title: 'Resume' },
   { url: 'contact/', title: 'Contact' },
+  { url: 'meta/', title: 'Meta' },
   { url: 'https://github.com/mtang24', title: 'GitHub' },
 ];
 
