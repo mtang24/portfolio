@@ -288,14 +288,55 @@ path {
   font-size: 1.25rem; /* Smaller font size */
   font-weight: bold;
   margin: 0;
-  color: #000;
 }
 
 .gridlines {
-  color: #dadada
+  color: #eaeaea
 }
 
+dl.info {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 12px; /* Adjust spacing between rows and columns */
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add shadow to make it look raised */
+  padding: 1em; /* Add padding for better appearance */
+  background-color: rgba(255, 255, 255, 0.8); /* Ensure background color is white */
+  border-radius: 8px; /* Optional: Add border radius for rounded corners */
+  backdrop-filter: blur(10px);
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
 
+dl.info dt {
+  font-weight: normal;  /* Make labels less prominent */
+  color: #666; /* Slightly faded color for labels */
+  margin: 0; /* Remove default margins */
+}
 
+dl.info dd {
+  font-weight: bold; /* Make values stand out */
+  color: #000; /* Darker text for emphasis */
+  margin: 0; /* Remove default margins */
+}
 
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip {
+  position: fixed;
+
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
 

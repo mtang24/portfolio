@@ -138,6 +138,15 @@ function createScatterplot() {
 
   const yScale = d3.scaleLinear().domain([0, 24]).range([usableArea.height, usableArea.top]);
 
+  // Add gridlines BEFORE the axes
+  const gridlines = svg
+  .append('g')
+  .attr('class', 'gridlines')
+  .attr('transform', `translate(${usableArea.left}, 0)`);
+
+  // Create gridlines as an axis with no labels and full-width ticks
+  gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width));
+
   const dots = svg.append('g').attr('class', 'dots');
 
   dots
@@ -184,13 +193,63 @@ function createScatterplot() {
     .attr('transform', `translate(${usableArea.left}, 0)`)
     .call(yAxis);
 
-  // Add gridlines BEFORE the axes
-  const gridlines = svg
-    .append('g')
-    .attr('class', 'gridlines')
-    .attr('transform', `translate(${usableArea.left}, 0)`);
+  let tooltipTimeout; // Declare timeout variable
 
-  // Create gridlines as an axis with no labels and full-width ticks
-  gridlines.call(d3.axisLeft(yScale).tickFormat('').tickSize(-usableArea.width));
+  dots.selectAll('circle')
+    .on('mouseenter', function (event) {
+      const commit = this.__data__; // Get bound commit data
+      updateTooltipContent(commit);
+      updateTooltipVisibility(true);
+      updateTooltipPosition(event);
+      
+      clearTimeout(tooltipTimeout); // Cancel any pending hide action
+    })
+    .on('mousemove', (event) => {
+      updateTooltipPosition(event);
+    })
+    .on('mouseleave', () => {
+      tooltipTimeout = setTimeout(() => {
+        updateTooltipVisibility(false); // Hide tooltip entirely in one step
+      }, 200); // Short delay to allow movement to the tooltip
+    });
+  
+  // Prevent tooltip from disappearing when hovered over
+  const tooltip = document.getElementById('commit-tooltip');
+  
+  tooltip.addEventListener('mouseenter', () => {
+    clearTimeout(tooltipTimeout); // Cancel hiding when user enters tooltip
+  });
+  
+  tooltip.addEventListener('mouseleave', () => {
+    updateTooltipVisibility(false); // Hide tooltip when mouse leaves tooltip
+  });
 }
 
+function updateTooltipContent(commit) {
+  const link = document.getElementById('commit-link');
+  const date = document.getElementById('commit-date');
+
+  if (!commit || !commit.id) {
+    link.textContent = '';
+    link.removeAttribute('href');
+    date.textContent = '';
+    return;
+  }
+
+  link.href = commit.url;
+  link.textContent = commit.id;
+  date.textContent = commit.datetime?.toLocaleString('en', {
+    dateStyle: 'full',
+  });
+}
+
+function updateTooltipVisibility(isVisible) {
+  const tooltip = document.getElementById('commit-tooltip');
+  tooltip.hidden = !isVisible;
+}
+
+function updateTooltipPosition(event) {
+  const tooltip = document.getElementById('commit-tooltip');
+  tooltip.style.left = `${event.clientX + 10}px`; // Offset to avoid cursor overlap
+  tooltip.style.top = `${event.clientY + 10}px`; // Offset to avoid cursor overlap
+}
