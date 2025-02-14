@@ -200,12 +200,6 @@ function createScatterplot() {
     .attr('transform', `translate(${usableArea.left}, 0)`)
     .call(yAxis);
 
-  // Sort commits by total lines in descending order
-  const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
-
-  // Use sortedCommits in your selection instead of commits
-  dots.selectAll('circle').data(sortedCommits).join('circle');
-
   let tooltipTimeout; // Declare timeout variable
 
   dots.selectAll('circle')
