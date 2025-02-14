@@ -138,6 +138,13 @@ function createScatterplot() {
 
   const yScale = d3.scaleLinear().domain([0, 24]).range([usableArea.height, usableArea.top]);
 
+  const [minLines, maxLines] = d3.extent(commits, (d) => d.totalLines);
+
+  const rScale = d3
+  .scaleSqrt() // Change only this line
+  .domain([minLines, maxLines])
+  .range([2, 30]);
+
   // Add gridlines BEFORE the axes
   const gridlines = svg
   .append('g')
@@ -193,6 +200,12 @@ function createScatterplot() {
     .attr('transform', `translate(${usableArea.left}, 0)`)
     .call(yAxis);
 
+  // Sort commits by total lines in descending order
+  const sortedCommits = d3.sort(commits, (d) => -d.totalLines);
+
+  // Use sortedCommits in your selection instead of commits
+  dots.selectAll('circle').data(sortedCommits).join('circle');
+
   let tooltipTimeout; // Declare timeout variable
 
   dots.selectAll('circle')
@@ -201,18 +214,22 @@ function createScatterplot() {
       updateTooltipContent(commit);
       updateTooltipVisibility(true);
       updateTooltipPosition(event);
+      d3.select(event.currentTarget).style('fill-opacity', 1); // Full opacity on hover
       
       clearTimeout(tooltipTimeout); // Cancel any pending hide action
     })
     .on('mousemove', (event) => {
       updateTooltipPosition(event);
     })
-    .on('mouseleave', () => {
+    .on('mouseleave', (event) => {
       tooltipTimeout = setTimeout(() => {
         updateTooltipVisibility(false); // Hide tooltip entirely in one step
       }, 200); // Short delay to allow movement to the tooltip
-    });
-  
+      d3.select(event.currentTarget).style('fill-opacity', 0.7); // Restore transparency
+    })
+    .attr('r', (d) => rScale(d.totalLines))
+    .style('fill-opacity', 0.7) // Add transparency for overlapping dots;
+   
   // Prevent tooltip from disappearing when hovered over
   const tooltip = document.getElementById('commit-tooltip');
   
