@@ -17,7 +17,6 @@ async function loadData() {
     displayStats()
     createScatterplot()
     brushSelector()
-    brushed()
   }
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -175,15 +174,13 @@ function createScatterplot() {
   const tickValues = [];
   let currentTick = minDate;
 
-  while (currentTick <= maxDate) {
+  while (currentTick < maxDate) {
     tickValues.push(currentTick);
     currentTick = d3.timeDay.offset(currentTick, 2); // Move by 2 days
   }
 
   // Ensure maxDate is included as the last tick
-  if (tickValues[tickValues.length - 1] !== maxDate) {
-    tickValues.push(maxDate);
-  }
+  // tickValues.push(maxDate);
 
   // Set up the x-axis with custom tick values
   const xAxis = d3.axisBottom(xScale)
