@@ -100,7 +100,7 @@ function displayStats() {
   const period = averageHour >= 12 ? 'PM' : 'AM';
   const formattedHour = averageHour % 12 || 12; // Convert to 12-hour format
 
-  dl.append('dt').text('Average active time of day');
+  dl.append('dt').text('Average commit time');
   dl.append('dd').text(`${formattedHour}:${averageMinute.toString().padStart(2, '0')} ${period} PST`);
 
   // Add most active day of the week
