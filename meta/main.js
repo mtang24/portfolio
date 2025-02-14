@@ -89,16 +89,19 @@ function displayStats() {
   dl.append('dt').text('Number of files');
   dl.append('dd').text(numberOfFiles);
 
-  // Add most active time of day in PST
-  const timeOfDay = d3.rollup(data, v => v.length, d => {
-    let pstHour = (d.datetime.getUTCHours() - 8 + 24) % 24; // Convert to PST
-    let period = pstHour >= 12 ? 'PM' : 'AM';
-    pstHour = pstHour % 12 || 12; // Convert to 12-hour format
-    return `${pstHour} ${period}`;
+  // Calculate the average time of day in PST
+  const totalMinutes = d3.sum(data, d => {
+    const pstHour = (d.datetime.getUTCHours() - 8 + 24) % 24; // Convert to PST
+    return pstHour * 60 + d.datetime.getUTCMinutes();
   });
-  const mostCommonTimeOfDay = Array.from(timeOfDay).reduce((a, b) => a[1] > b[1] ? a : b)[0];
-  dl.append('dt').text('Most active time of day (PST)');
-  dl.append('dd').text(mostCommonTimeOfDay);
+  const averageMinutes = totalMinutes / data.length;
+  const averageHour = Math.floor(averageMinutes / 60);
+  const averageMinute = Math.round(averageMinutes % 60);
+  const period = averageHour >= 12 ? 'PM' : 'AM';
+  const formattedHour = averageHour % 12 || 12; // Convert to 12-hour format
+
+  dl.append('dt').text('Average active time of day');
+  dl.append('dd').text(`${formattedHour}:${averageMinute.toString().padStart(2, '0')} ${period} PST`);
 
   // Add most active day of the week
   const dayOfWeek = d3.rollup(data, v => v.length, d => d.datetime.getDay());
