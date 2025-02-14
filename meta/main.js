@@ -245,11 +245,13 @@ function createScatterplot() {
 function updateTooltipContent(commit) {
   const link = document.getElementById('commit-link');
   const date = document.getElementById('commit-date');
+  const time = document.getElementById('commit-time');
 
   if (!commit || !commit.id) {
     link.textContent = '';
     link.removeAttribute('href');
     date.textContent = '';
+    time.textContent = '';
     return;
   }
 
@@ -257,6 +259,9 @@ function updateTooltipContent(commit) {
   link.textContent = commit.id;
   date.textContent = commit.datetime?.toLocaleString('en', {
     dateStyle: 'full',
+  });
+  time.textContent = commit.datetime?.toLocaleString('en', {
+    timeStyle: 'short',
   });
 }
 
