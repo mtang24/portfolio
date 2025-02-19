@@ -98,24 +98,18 @@ export async function fetchJSON(url) {
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
-
   projects.forEach(project => {
     const article = document.createElement('article');
 
+    // Use headingLevel dynamically, if needed (here we're hardcoding 'h3' for simplicity)
     let titleHTML = `<h3>${project.title}</h3>`;
     if (project.url) {
       titleHTML = `<h3><a href="${project.url}" target="_blank">${project.title}</a></h3>`;
     }
     
-    // If the image path starts with '/', use window.location.origin + project.image
-    // Removing basePath fixes the image URL on both home and projects pages if the JSON contains root-relative paths
-    const imageSrc = project.image.startsWith('/') 
-      ? window.location.origin + project.image 
-      : project.image;
-    
     article.innerHTML = `
       ${titleHTML}
-      <img src="${imageSrc}" alt="${project.title}">
+      <img src="${project.image}" alt="${project.title}">
       <p>${project.description}</p>
       <p class="project-year">${project.year}</p>
     `;
