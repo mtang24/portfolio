@@ -107,13 +107,18 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       titleHTML = `<h3><a href="${project.url}" target="_blank">${project.title}</a></h3>`;
     }
     
+    // Adjust the image source: if the image path starts with '/', prepend the origin
+    const imageSrc = project.image.startsWith('/') 
+      ? window.location.origin + project.image 
+      : project.image;
+    
     article.innerHTML = `
       ${titleHTML}
-      <img src="${project.image}" alt="${project.title}">
+      <img src="${imageSrc}" alt="${project.title}">
       <p>${project.description}</p>
       <p class="project-year">${project.year}</p>
     `;
-
+    
     containerElement.appendChild(article);
   });
 }

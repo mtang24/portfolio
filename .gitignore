@@ -8,3 +8,5 @@ node_modules/
 
 # Ignore .meta directory
 .meta/loc.csv
+
+.vscode
