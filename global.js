@@ -96,17 +96,22 @@ export async function fetchJSON(url) {
   }
 }
 
-export function renderProjects(project, containerElement, headingLevel = 'h2') {
-  // write javascript that will allow dynamic heading levels based on previous function
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
-  project.forEach(project => {
+  projects.forEach(project => {
     const article = document.createElement('article');
 
+    // Use headingLevel dynamically, if needed (here we're hardcoding 'h3' for simplicity)
+    let titleHTML = `<h3>${project.title}</h3>`;
+    if (project.url) {
+      titleHTML = `<h3><a href="${project.url}" target="_blank">${project.title}</a></h3>`;
+    }
+    
     article.innerHTML = `
-    <h3>${project.title}</h3>
-    <img src="${project.image}" alt="${project.title}">
-    <p>${project.description}</p>
-    <p class="project-year">${project.year}</p>
+      ${titleHTML}
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+      <p class="project-year">${project.year}</p>
     `;
 
     containerElement.appendChild(article);

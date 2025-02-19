@@ -1,5 +1,12 @@
 [
     {
+        "title": "Visualizing Bike Traffic in Boston",
+        "year": "2025",
+        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit.",
+        "url": "https://mtang24.github.io/bike_traffic/"
+    },
+    {
         "title": "Truthful vs Deceptive Data Visualizations",
         "year": "2025",
         "image": "https://dsc106.com/labs/lab02/images/empty.svg",
