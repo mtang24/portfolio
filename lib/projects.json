@@ -2,8 +2,8 @@
     {
         "title": "Visualizing Bike Traffic in Boston",
         "year": "2025",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit.",
+        "image": "../images/boston_bike.png",
+        "description": "Using d3.js, I implemented an interactive map visualization of bike traffic in the Boston area during different times of the day.",
         "url": "https://mtang24.github.io/bike_traffic/"
     },
     {

@@ -88,6 +88,13 @@ form {
   }
 }
 
+.projects article img {
+  max-width: 250px; /* adjust to your preferred max width */
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
 /* Prevent links inside project articles from being highlighted */
 .projects article a:link,
 .projects article a:visited,
