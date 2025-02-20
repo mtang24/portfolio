@@ -16,19 +16,19 @@
     {
         "title": "Truthful vs Deceptive Data Visualizations",
         "year": "2025",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "image": "/images/earnest.png",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
     },
     {
         "title": "Expository Data Viz on Climate Data",
         "year": "2025",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
+        "image": "/images/expository.png",
         "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
     },
     {
         "title": "Power Outage Data Analysis",
         "year": "2024",
-        "image": "images/power_outages.png",
+        "image": "/images/power_outages.png",
         "description": "This data analysis investigates what influences the cause and duration of major U.S. power outages. We used historical data from January 2000 to July 2016 to uncover trends and understand how we can inform more resilient infrastructure planning.",
         "url": "https://mtang24.github.io/US_Power_Outage_Analysis/"
     },
