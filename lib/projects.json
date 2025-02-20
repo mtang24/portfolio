@@ -7,6 +7,13 @@
         "url": "https://mtang24.github.io/bike_traffic/"
     },
     {
+        "title": "Visualizing Mice Activity",
+        "year": "2025",
+        "image": "/images/mouse_activity.png",
+        "description": "This visualization displays temperature and activity data from a 14-day study on mice using d3.js. Users can use a dropdown menu and buttons to customize and filter based on measure, gender, and time of day.",
+        "url": "https://mtang24.github.io/mouse_activity/"
+    },
+    {
         "title": "Truthful vs Deceptive Data Visualizations",
         "year": "2025",
         "image": "https://dsc106.com/labs/lab02/images/empty.svg",
@@ -21,14 +28,16 @@
     {
         "title": "Power Outage Data Analysis",
         "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "This data analysis investigates what influences the cause and duration of major U.S. power outages. We used historical data from January 2000 to July 2016 to uncover trends and understand how we can inform more resilient infrastructure planning."
+        "image": "images/power_outages.png",
+        "description": "This data analysis investigates what influences the cause and duration of major U.S. power outages. We used historical data from January 2000 to July 2016 to uncover trends and understand how we can inform more resilient infrastructure planning.",
+        "url": "https://mtang24.github.io/US_Power_Outage_Analysis/"
     },
     {
         "title": "Online Shopping Consumer Behavior Data Analysis",
         "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "The goal of the analysis was to explore how the time of a consumer's visit to an e-commerce website could be associated with the number of marketing tactics used on a product page."
+        "image": "/images/online_shopping.png",
+        "description": "The goal of the analysis was to explore how the time of a consumer's visit to an e-commerce website could be associated with the number of marketing tactics used on a product page.",
+        "url": "https://mtang24.github.io/online-shopping-consumer-behavior/"
     },
     {
         "title": "Annual Air Pollution Predictive Modeling",
