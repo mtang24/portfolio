@@ -98,18 +98,29 @@ export async function fetchJSON(url) {
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';
+
+  // Determine base path from window.location.pathname.
+  // E.g., if pathname is "/portfolio/", basePath will be "/portfolio"
+  const pathParts = window.location.pathname.split('/');
+  // Use the first non-empty part (if it exists)
+  const basePath = pathParts.length > 1 && pathParts[1] ? `/${pathParts[1]}` : '';
+
   projects.forEach(project => {
     const article = document.createElement('article');
 
-    // Use headingLevel dynamically, if needed (here we're hardcoding 'h3' for simplicity)
     let titleHTML = `<h3>${project.title}</h3>`;
     if (project.url) {
       titleHTML = `<h3><a href="${project.url}" target="_blank">${project.title}</a></h3>`;
     }
     
+    // Build the full image URL taking into account the base path on GitHub Pages
+    const imageSrc = project.image.startsWith('/')
+      ? window.location.origin + basePath + project.image
+      : project.image;
+    
     article.innerHTML = `
       ${titleHTML}
-      <img src="${project.image}" alt="${project.title}">
+      <img src="${imageSrc}" alt="${project.title}">
       <p>${project.description}</p>
       <p class="project-year">${project.year}</p>
     `;
