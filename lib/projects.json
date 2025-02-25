@@ -17,13 +17,13 @@
         "title": "Truthful vs Deceptive Data Visualizations",
         "year": "2025",
         "image": "/images/earnest.png",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+        "description": "This project explores how visualization design shapes data interpretation, comparing a truthful and a deceptive representation of mouse activity data. It highlights the importance of clear labeling and framing in preventing misinterpretation."
     },
     {
         "title": "Expository Data Viz on Climate Data",
         "year": "2025",
         "image": "/images/expository.png",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+        "description": "This project explores how sunshine patterns relate to travel demand in San Diego and San Francisco using percent change comparisons over time. The visualization emphasizes seasonal differences while ensuring clear and accurate trend comparisons."
     },
     {
         "title": "Power Outage Data Analysis",
@@ -48,8 +48,9 @@
     {
         "title": "Spotify Charts Data Analysis",
         "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+        "image": "/images/spotify.png",
+        "description": "This project analyzes trends in the top 200 weekly songs on Spotify for a year. Using pandas and the Spotify Web API, I explore song attributes such as explicitness and genre to see if they are associated with their chart rank.",
+        "url": "https://mtang24.github.io/spotify/"
     },
     {
         "title": "Credit Card Machine Learning Analysis",
@@ -84,7 +85,8 @@
     {
         "title": "Software Tool Tutorials",
         "year": "2022",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
+        "image": "/images/software_tool_tutorials.png",
+        "description": "This website contains tutorials on various software tools used in CSE 15L at UC San Diego, such as directory commands and the markdown language.",
+        "url": "https://mtang24.github.io/cse15l-lab-reports/"
     }
 ]
