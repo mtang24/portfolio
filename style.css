@@ -121,7 +121,7 @@ h1, h2, h3, h4, h5, h6 {
   text-wrap: balance;
 }
 
-.line {
+.line-title {
   display: flex;
   justify-content: space-between; /*Align left and right*/
   align-items: center; /* Vertically center content */
@@ -452,4 +452,49 @@ circle.selected {
   width: 0.5em;
   aspect-ratio: 1;
   border-radius: 50%;  
+}
+
+#scrollytelling {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+/* feel free to play with this to make your scrolly more seemless with your plot */
+#scroll-container {
+  grid-column: 1;
+  position: relative;
+  width: 95%;
+  height: 350px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
+#chart {
+  grid-column: 2;
+}
+
+#spacer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: none; /* transparent */
+  pointer-events: none;
+}
+
+#items-container {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.item {
+  height: 150px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-bottom: 2px solid #eee;
 }

@@ -1,6 +1,6 @@
 let data = [];
-let xScale;
-let yScale;
+let commits = [];                   // Will hold processed commits
+let xScale, yScale;
 let selectedCommits = [];
 let filteredCommits = [];
 let commitProgress = 100;
@@ -8,30 +8,59 @@ const timeSlider = document.getElementById('timeSlider');
 let lines = filteredCommits.flatMap((d) => d.lines);
 let files = [];
 
+// Scrolling parameters—these are later updated based on commits length
+let NUM_ITEMS;
+let ITEM_HEIGHT = 150;              // Height of one commit item
+let VISIBLE_COUNT = 20;             // Number of commits visible at one time
+let totalHeight;
+
+// Get scroll-related containers via D3
+const scrollContainer = d3.select('#scroll-container');
+const spacer = d3.select('#spacer');
+const itemsContainer = d3.select('#items-container');
+
+// loadData waits for the CSV to be loaded, then processes and sorts commits.
+// After processing commits, it initializes the scrolling-related variables.
 async function loadData() {
-    data = await d3.csv('loc.csv', (row) => ({
-      ...row,
-      line: Number(row.line),
-      depth: Number(row.depth),
-      length: Number(row.length),
-      date: new Date(row.date + 'T00:00' + row.timezone),
-      datetime: new Date(row.datetime),
-    }));
-    
-processCommits();
-  filterCommitsByTime();  // This updates filteredCommits based on the initial slider value
-    displayStats();
-    updateScatterplot(filteredCommits);
-    brushSelector();
+  data = await d3.csv('loc.csv', (row) => ({
+    ...row,
+    line: Number(row.line),
+    depth: Number(row.depth),
+    length: Number(row.length),
+    date: new Date(row.date + 'T00:00' + row.timezone),
+    datetime: new Date(row.datetime),
+  }));
+
+  processCommits();           // Processes and sorts commits
+  filterCommitsByTime();      // Updates filteredCommits based on slider value
+  displayStats();
+  updateScatterplot(filteredCommits);
+  brushSelector();
+
+  // Initialize scrolling:
+  NUM_ITEMS = commits.length;                    
+  totalHeight = (NUM_ITEMS - VISIBLE_COUNT) * ITEM_HEIGHT; 
+  spacer.style('height', `${totalHeight}px`);
+
+  // Ensure some items show up right away
+  renderItems(0);
 }
 
+// Set up the DOMContentLoaded event so that we load data first
 document.addEventListener('DOMContentLoaded', async () => {
   await loadData();
   timeSlider.addEventListener('input', updateTimeDisplay);
+  
+  // Attach the scroll listener after data and commits are initialized.
+  scrollContainer.on('scroll', () => {
+    const scrollTop = scrollContainer.property('scrollTop');
+    let startIndex = Math.floor(scrollTop / ITEM_HEIGHT);
+    startIndex = Math.max(0, Math.min(startIndex, commits.length - VISIBLE_COUNT));
+    renderItems(startIndex);
+  });
 });
 
-let commits = [];
-
+// Process the raw data into commits and sort them by datetime (chronologically)
 function processCommits() {
   commits = d3
     .groups(data, (d) => d.commit)
@@ -49,16 +78,17 @@ function processCommits() {
         hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
         totalLines: lines.length,
       };
-
       Object.defineProperty(ret, 'lines', {
         value: lines,
         configurable: true, // Property can be deleted and attributes can be modified
         writable: false, // Property value cannot be changed
         enumerable: true, // Property will be included in enumerations
       });
-
       return ret;
     });
+
+  // Sort all commits chronologically
+  commits.sort((a, b) => a.datetime - b.datetime);
 }
 
 function displayStats() {
@@ -156,9 +186,6 @@ function updateFiles() {
   files = d3
     .groups(allLines, d => d.file)
     .map(([name, lines]) => ({ name, lines }));
-
-  // Sort files by descending number of lines
-  files = d3.sort(files, d => -d.lines.length);
   
   // Clear the files container (dl)
   const container = d3.select('.files');
@@ -427,3 +454,51 @@ function updateLanguageBreakdown() {
   return breakdown;
 }
 
+function renderItems(startIndex) {
+  // Clear things off
+  itemsContainer.selectAll('div').remove();
+  const endIndex = Math.min(startIndex + VISIBLE_COUNT, commits.length);
+  let newCommitSlice = commits.slice(startIndex, endIndex);
+  // Update the scatterplot
+  updateScatterplot(newCommitSlice);
+  // Re-bind the commit data to the container and represent each using a div
+  itemsContainer.selectAll('div')
+                .data(newCommitSlice)
+                .enter()
+                .append('div')
+                .each((commit, index) => {
+                  console.log('Rendering commit:', commit);
+                })
+                .html((commit, index) => `
+                  <p>
+                    On ${commit.datetime.toLocaleString("en", { dateStyle: "full", timeStyle: "short" })}, I made
+                    <a href="${commit.url}" target="_blank">
+                      ${index > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'}
+                    </a>.
+                    I edited ${commit.totalLines} lines across ${d3.rollups(commit.lines, D => D.length, d => d.file).length} files.
+                    Then I looked over all I had made, and I saw that it was very good.
+                  </p>
+                `)
+                .style('position', 'absolute')
+                .style('top', (_, idx) => `${idx * ITEM_HEIGHT}px`);
+}
+
+
+function displayCommitFiles() {
+  const lines = filteredCommits.flatMap((d) => d.lines);
+  let fileTypeColors = d3.scaleOrdinal(d3.schemeTableau10);
+  let files = d3.groups(lines, (d) => d.file).map(([name, lines]) => {
+    return { name, lines };
+  });
+  files = d3.sort(files, (d) => -d.lines.length);
+  d3.select('.files').selectAll('div').remove();
+  let filesContainer = d3.select('.files').selectAll('div').data(files).enter().append('div');
+  filesContainer.append('dt').html(d => `<code>${d.name}</code><small>${d.lines.length} lines</small>`);
+  filesContainer.append('dd')
+                .selectAll('div')
+                .data(d => d.lines)
+                .enter()
+                .append('div')
+                .attr('class', 'line')
+                .style('background', d => fileTypeColors(d.type));
+}
