@@ -3,8 +3,6 @@ let commits = [];                   // Will hold processed commits
 let xScale, yScale;
 let selectedCommits = [];
 let filteredCommits = [];
-let commitProgress = 100;
-const timeSlider = document.getElementById('timeSlider');
 let lines = filteredCommits.flatMap((d) => d.lines);
 let files = [];
 
@@ -32,7 +30,6 @@ async function loadData() {
   }));
 
   processCommits();           // Processes and sorts commits
-  filterCommitsByTime();      // Updates filteredCommits based on slider value
   displayStats();
   updateScatterplot(filteredCommits);
   brushSelector();
@@ -49,7 +46,6 @@ async function loadData() {
 // Set up the DOMContentLoaded event so that we load data first
 document.addEventListener('DOMContentLoaded', async () => {
   await loadData();
-  timeSlider.addEventListener('input', updateTimeDisplay);
   
   // Attach the scroll listener after data and commits are initialized.
   scrollContainer.on('scroll', () => {
@@ -109,7 +105,7 @@ function displayStats() {
   dl.append('dt').text('Total commits');
   dl.append('dd')
     .attr('id', 'commit-count')
-    .text(filteredCommits.length);
+    .text(commits.length);
 
   // Add more stats as needed...
 
@@ -144,38 +140,6 @@ function displayStats() {
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   dl.append('dt').text('Most active day of week');
   dl.append('dd').text(days[mostCommonDayOfWeek]);
-}
-
-function filterCommitsByTime() {
-  const minTime = d3.min(commits, d => d.datetime);
-  const maxTime = d3.max(commits, d => d.datetime);
-  const timeScale = d3.scaleTime().domain([minTime, maxTime]).range([0, 100]);
-  let commitMaxTime = timeScale.invert(commitProgress);
-
-  // Update the displayed current slider time.
-  const selectedTime = document.getElementById('selectedTime');
-  selectedTime.textContent = commitMaxTime.toLocaleString('en-US', {
-    dateStyle: 'long',
-    timeStyle: 'short'
-  });
-
-  // Filter commits based on the slider's max time.
-  filteredCommits = commits.filter(commit => commit.datetime <= commitMaxTime);
-}
-
-function updateTimeDisplay() {
-  commitProgress = Number(timeSlider.value);
-  filterCommitsByTime();
-  updateScatterplot(filteredCommits);
-  
-  // Update the displayed current slider time (in filterCommitsByTime)
-  // Now update the commit count dynamically
-  const commitCountElem = document.getElementById('commit-count');
-  if (commitCountElem) {
-    commitCountElem.textContent = filteredCommits.length;
-  }
-
-  updateFiles();
 }
 
 function updateFiles() {
@@ -467,7 +431,6 @@ function renderItems(startIndex) {
                 .enter()
                 .append('div')
                 .each((commit, index) => {
-                  console.log('Rendering commit:', commit);
                 })
                 .html((commit, index) => `
                   <p>
@@ -482,7 +445,6 @@ function renderItems(startIndex) {
                 .style('position', 'absolute')
                 .style('top', (_, idx) => `${idx * ITEM_HEIGHT}px`);
 }
-
 
 function displayCommitFiles() {
   const lines = filteredCommits.flatMap((d) => d.lines);

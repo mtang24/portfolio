@@ -14,22 +14,13 @@
 
     <div id="stats"></div>
 
-    <div id="slider">
-        <label>Show commits until:
-            <input type="range" id="timeSlider" min="0" max="100" value="0">
-            <time id="selectedTime"></time>
-        </label>
-    </div>
-
-    <dl class="files"></dl>
-
     <h2>Commits by time of day</h2>
     <div id="scrollytelling">
         <div id="scroll-container">
             <div id="spacer"></div>
             <div id="items-container"></div>
         </div>
-        <!-- our old scatterplot div -->
+        <!-- scatterplot div -->
         <div id="chart"></div>
     </div>
 
@@ -47,9 +38,17 @@
         <dd id="commit-time"></dd>
     </dl>
 
-    <p id="selection-count">No commits selected</p>
+    <dl class="files"></dl>
 
-    <dl id="language-breakdown" class="stats"></dl>
+    <h2>File size over time</h2>
+    <div id="scrollytelling">
+        <div id="scroll-container">
+            <div id="spacer"></div>
+            <div id="items-container"></div>
+        </div>
+        <!-- dot plot div -->
+        <div id="chart"></div>
+    </div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="../global.js" type="module"></script>
