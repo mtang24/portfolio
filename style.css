@@ -1,6 +1,9 @@
 :root {
   --color-accent: #7bcf83;  /* Define the color */
 }
+:global(body) {
+  max-width: min(120ch, 80vw);
+}
 
 body {
     /* Set line height to 1.5 times the font size
@@ -348,9 +351,12 @@ dl.info[hidden]:not(:hover, :focus-within) {
 }
 
 circle {
-  transition: 200ms;
+  transition: all 200ms, r calc(var(--r) * 100ms);
   transform-origin: center;
   transform-box: fill-box;
+  @starting-style {
+    r: 0;
+  }
 }
 
 circle:hover {
@@ -381,4 +387,69 @@ circle.selected {
 
 #selection-count {
   font-weight: bold;
+}
+
+#slider {
+  /* Adjust spacing and styling as needed */
+  margin-top: 3em;
+  align-items: baseline;
+  flex: 1;
+  label {
+    font-weight: bold;
+  }
+}
+
+/* Make the timeslider wider */
+#timeSlider {
+  width: 100%; /* or specify a fixed width, e.g. 300px */
+}
+
+/* Place the timestamp on its own line at the bottom right */
+#selectedTime {
+    display: block;
+    text-align: right;
+    font-size: 0.9em; /* optional: adjust font size */
+}
+
+#slider time {
+  margin-left: auto;
+}
+
+.files {
+  display: grid;
+  /* First column sized to fit the filename, second for the dots */
+  grid-template-columns: max-content auto;
+  /* Set the horizontal gap as desired (smaller value = closer columns) */
+  column-gap: 2em;
+  row-gap: 4px;
+}
+
+/* Style file names (dt) */
+.files dt {
+  text-align: left;
+  margin: 0;
+
+  small {
+    display: block;
+    font-size: 0.75em;
+    opacity: 0.7;
+    margin-top: 0.2em;
+  }
+}
+
+/* Style the dot container (dd) */
+.files dd {
+  display: flex; /* Arrange the dots in a row */
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin: 0;
+}
+
+.line {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;  
 }

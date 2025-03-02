@@ -85,7 +85,7 @@
     {
         "title": "Software Tool Tutorials",
         "year": "2022",
-        "image": "/images/software_tool_tutorials.png",
+        "image": "/images/software_tools.png",
         "description": "This website contains tutorials on various software tools used in CSE 15L at UC San Diego, such as directory commands and the markdown language.",
         "url": "https://mtang24.github.io/cse15l-lab-reports/"
     }
