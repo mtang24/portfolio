@@ -10,7 +10,7 @@ body {
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui; 
-    max-width: 150ch; /* Set the maximum width of the body */
+    max-width: 105ch; /* Set the maximum width of the body */
     margin-inline: auto;  /* Center the body */
     padding: 10px;  /* Add some padding around the body */
     accent-color: var(--color-accent); /* Set the accent color */
