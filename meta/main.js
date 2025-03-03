@@ -569,8 +569,13 @@ function renderItems2(startIndex) {
 
 // Update file display based on the current commit slice
 function displayCommitFiles(commitSlice, containerSelector = '.files') {
+  // Combine all lines from your entire data set or ensure a fixed domain
+  const types = Array.from(new Set(data.map(d => d.type))).sort();
+  const fileTypeColors = d3.scaleOrdinal()
+                           .domain(types)
+                           .range(d3.schemeTableau10);
+
   const lines = commitSlice.flatMap(d => d.lines);
-  let fileTypeColors = d3.scaleOrdinal(d3.schemeTableau10);
   let files = d3.groups(lines, d => d.file)
                 .map(([name, lines]) => ({ name, lines }));
   files = d3.sort(files, (a, b) => b.lines.length - a.lines.length);
@@ -578,22 +583,20 @@ function displayCommitFiles(commitSlice, containerSelector = '.files') {
   // Remove existing content in the container
   d3.select(containerSelector).selectAll('div').remove();
 
-  // For each file, create a container that is block-level so it starts on a new line.
   let filesContainer = d3.select(containerSelector)
                          .selectAll('div')
                          .data(files)
                          .enter()
                          .append('div')
-                         .style('display', 'block')                // Stack files vertically
-                         .style('margin-bottom', '1em');            // Add space between files
+                         .style('display', 'block')
+                         .style('margin-bottom', '1em');
 
   filesContainer.append('dt')
                 .html(d => `<code>${d.name}</code><br><small>${d.lines.length} lines</small>`);
 
-  // Append a dd container inside each file container. Use flex to lay out the dots horizontally.
   filesContainer.append('dd')
-                .style('display', 'flex')          // horizontal layout for dots
-                .style('flex-wrap', 'wrap')        // allow dots to wrap
+                .style('display', 'flex')
+                .style('flex-wrap', 'wrap')
                 .selectAll('div')
                 .data(d => d.lines)
                 .enter()
