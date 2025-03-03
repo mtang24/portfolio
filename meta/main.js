@@ -430,6 +430,97 @@ function updateLanguageBreakdown() {
   return breakdown;
 }
 
+function commitNarrative(commit, index) {
+  const narratives = [
+    // Remove the initial "One date at …" phrase since the full date is already provided.
+    "I made my first commit by creating the index.html file. This commit involved editing 1 line to lay the foundation for the website structure, preparing it for further development.",
+    "I made an update to the navigation menu by editing 1 line in the index.html file to better position the elements and ensure they align with the overall design.",
+    "I continued refining the navigation menu, editing 14 lines across the index.html file to further improve its layout and design for a more user-friendly experience.",
+    "I made a more extensive update to the navigation menu by editing 74 lines in the index.html file. This commit focused on restructuring the menu and improving its overall usability and visual design.",
+    "I added the contact form to the project, editing 74 lines across 4 files. This commit involved creating the form structure and ensuring it was properly integrated into the index.html page.",
+    "I made minor adjustments to the contact form, editing 41 lines across 2 files to improve its layout, spacing, and overall visual design for better usability.",
+    "I cleaned up the code by editing 3 lines across 1 file. This commit involved removing redundant code and optimizing the structure of the form.",
+    "I added a new resume page by editing 28 lines across 2 files. This update introduced the page structure and integrated it smoothly into the existing website.",
+    "I refined the resume page further by editing 2 lines across 2 files, improving the layout and ensuring visual consistency with other parts of the site.",
+    "I made significant updates by editing 132 lines across 6 files. This commit introduced several new sections to the site and enhanced the overall layout and design.",
+    "I made minor layout adjustments by editing 5 lines across 2 files to improve the alignment and structure of various elements, ensuring better responsiveness.",
+    "I made improvements to the website's layout and design by editing 5 lines across 5 files. This commit addressed a few minor issues to improve functionality and display.",
+    "I made a major update by editing 91 lines across 6 files. This commit included adding JavaScript for interactive elements and updating the website theme to improve visual appeal.",
+    "I made small refinements to the nav menu placement by editing 3 lines across 2 files to better position the elements for optimal usability.",
+    "I updated the site’s layout and functionality by editing 69 lines across 3 files. This commit improved the user experience by enhancing the visual and functional elements of the website.",
+    "I continued to improve the site by editing 78 lines across 3 files. This update focused on refining design elements and fixing small usability issues.",
+    "I cleaned up the code by editing 53 lines across 2 files, organizing the project structure and fixing small bugs to ensure everything was properly aligned.",
+    "I made a large update by editing 206 lines across 5 files. This commit introduced new features and enhancements, including improved interactivity and visual design.",
+    "I made further improvements by editing 111 lines across 3 files, enhancing the functionality of the website and adding new interactive features to the existing layout.",
+    "I made minor tweaks to the layout by editing 9 lines across 2 files to fine-tune the positioning and spacing of elements, improving overall user experience.",
+    "I made another adjustment by editing 91 lines across 3 files to update the layout and fix a few visual inconsistencies across different pages.",
+    "I edited 11 lines across 3 files to introduce additional styling changes and align the visual design with the overall theme of the website.",
+    "I made a small fix by editing 12 lines across 2 files to resolve text alignment and spacing issues, ensuring a more polished appearance.",
+    "I made a quick fix by editing 1 line in 1 file to correct an issue in the footer section, making sure the layout was consistent across the site.",
+    "I edited 21 lines across 2 files to enhance the functionality of the contact form, improving its interaction with users and adjusting the layout to match the rest of the site.",
+    "I edited 7 lines across 1 file to refine the layout and adjust the presentation of the homepage, improving its alignment and flow for better user navigation.",
+    "I made a small edit by changing 1 line across 1 file to fix a bug with one of the navigation links, ensuring proper routing and display.",
+    "I updated the homepage layout by editing 13 lines across 1 file, addressing some spacing and alignment issues to improve the user interface.",
+    "I made a major update to the site by editing 130 lines across 2 files, adding new interactive elements and improving the overall structure of the site for better performance.",
+    "I edited 139 lines across 4 files to improve the layout and design of several pages, enhancing the consistency and visual appeal of the site.",
+    "I edited 7 lines across 2 files to fix minor layout issues, ensuring proper display and alignment of content across different devices.",
+    "I made the final update for the day by editing 94 lines across 3 files, polishing the design, finalizing the layout, and ensuring a smooth, responsive user experience."
+  ];
+  
+  if (index < narratives.length) {
+    return narratives[index];
+  }
+  
+  // Fallback: calculate unique file count from commit.lines
+  const fileCount = Array.from(new Set(commit.lines.map(line => line.file))).length;
+  return `For this recent commit, I edited ${commit.totalLines} lines across ${fileCount} file${fileCount === 1 ? '' : 's'}.`;
+}
+
+function commitNarrative2(commit, index) {
+  const narratives = [
+    "I edited 1 line to create the index.html file, laying the foundation for the website structure, preparing it for further development.",
+    "I edited 1 line in the index.html file to update the navigation menu, improving its positioning and alignment with the overall design.",
+    "I edited 14 lines in the index.html file to refine the navigation menu further, enhancing its layout and design for a better user experience.",
+    "I edited 74 lines in the index.html file to make a more extensive update to the navigation menu, restructuring it for improved usability and visual appeal.",
+    "I edited 74 lines across 4 files to add the contact form to the project, including its structure and integration into the index.html page.",
+    "I edited 41 lines across 2 files to make minor adjustments to the contact form, enhancing its layout, spacing, and overall visual design for better usability.",
+    "I edited 3 lines across 1 file to clean up the code, removing redundancies and optimizing the structure of the contact form.",
+    "I edited 28 lines across 2 files to add a new resume page, introducing the page structure and integrating it into the existing website layout.",
+    "I edited 2 lines across 2 files to refine the resume page, improving its layout and ensuring visual consistency with other parts of the site.",
+    "I edited 132 lines across 6 files to make significant updates, introducing new sections to the site and enhancing the overall layout and design.",
+    "I edited 5 lines across 2 files to make minor layout adjustments, improving the alignment and structure of various elements for better responsiveness.",
+    "I edited 5 lines across 5 files to improve the website's layout and design, addressing minor issues to enhance functionality and display.",
+    "I edited 91 lines across 6 files to make a major update, adding JavaScript for interactive elements and updating the website theme for better visual appeal.",
+    "I edited 3 lines across 2 files to make small refinements to the nav menu placement, ensuring the elements are better positioned for optimal usability.",
+    "I edited 69 lines across 3 files to update the site’s layout and functionality, improving the user experience by enhancing both visual and functional elements.",
+    "I edited 78 lines across 3 files to further improve the site, refining design elements and fixing small usability issues.",
+    "I edited 53 lines across 2 files to clean up the code, organizing the project structure and fixing small bugs for better alignment.",
+    "I edited 206 lines across 5 files to make a large update, introducing new features and enhancements including improved interactivity and visual design.",
+    "I edited 111 lines across 3 files to make further improvements, enhancing the site’s functionality and adding new interactive features.",
+    "I edited 9 lines across 2 files to make minor tweaks to the layout, fine-tuning the positioning and spacing of elements for a better user experience.",
+    "I edited 91 lines across 3 files to update the layout, addressing visual inconsistencies and ensuring better consistency across pages.",
+    "I edited 11 lines across 3 files to introduce additional styling changes, aligning the visual design with the overall theme of the website.",
+    "I edited 12 lines across 2 files to make a small fix, resolving text alignment and spacing issues for a more polished appearance.",
+    "I edited 1 line across 1 file to fix an issue in the footer section, ensuring consistent layout across the site.",
+    "I edited 21 lines across 2 files to enhance the contact form's functionality, improving interaction with users and adjusting the layout to match the rest of the site.",
+    "I edited 7 lines across 1 file to refine the layout of the homepage, adjusting its presentation for better user navigation.",
+    "I edited 1 line across 1 file to fix a bug with one of the navigation links, ensuring proper routing and display.",
+    "I edited 13 lines across 1 file to update the homepage layout, addressing spacing and alignment issues to improve the user interface.",
+    "I edited 130 lines across 2 files to make a major update, adding new interactive elements and improving the overall structure for better performance.",
+    "I edited 139 lines across 4 files to improve the layout and design, enhancing the consistency and visual appeal of several pages.",
+    "I edited 7 lines across 2 files to fix minor layout issues, ensuring proper display and alignment of content across different devices.",
+    "I edited 94 lines across 3 files to make the final update for the day, polishing the design, finalizing the layout, and ensuring a smooth, responsive user experience."
+  ];
+
+  if (index < narratives.length) {
+    return narratives[index];
+  }
+
+  // Fallback: calculate unique file count from commit.lines
+  const fileCount = Array.from(new Set(commit.lines.map(line => line.file))).length;
+  return `For this recent commit, I edited ${commit.totalLines} lines across ${fileCount} file${fileCount === 1 ? '' : 's'}.`;
+}
+
 function renderItems(startIndex) {
   // Clear things off
   itemsContainer.selectAll('div').remove();
@@ -439,21 +530,17 @@ function renderItems(startIndex) {
   updateScatterplot(newCommitSlice);
   // Re-bind the commit data to the container and represent each using a div
   itemsContainer.selectAll('div')
-                .data(newCommitSlice)
-                .enter()
-                .append('div')
-                .html((commit, index) => `
-                  <p>
-                    On ${commit.datetime.toLocaleString("en", { dateStyle: "full", timeStyle: "short" })}, I made
-                    <a href="${commit.url}" target="_blank">
-                      ${index > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'}
-                    </a>.
-                    I edited ${commit.totalLines} lines across ${d3.rollups(commit.lines, D => D.length, d => d.file).length} files.
-                    Then I looked over all I had made, and I saw that it was very good.
-                  </p>
-                `)
-                .style('position', 'absolute')
-                .style('top', (_, idx) => `${idx * ITEM_HEIGHT}px`);
+  .data(newCommitSlice)
+  .enter()
+  .append('div')
+  .html((commit, index) => `
+    <p>
+      On <a href="${commit.url}" target="_blank">${commit.datetime.toLocaleString("en", { dateStyle: "full", timeStyle: "short" })}</a>,
+      ${commitNarrative(commit, index)}
+    </p>
+  `)
+  .style('position', 'absolute')
+  .style('top', (_, idx) => `${idx * ITEM_HEIGHT}px`);
 }
 
 function renderItems2(startIndex) {
@@ -467,21 +554,17 @@ function renderItems2(startIndex) {
   
   // Render commit items into the scrolly container 2 as before
   itemsContainer2.selectAll('div')
-                .data(newCommitSlice)
-                .enter()
-                .append('div')
-                .html((commit, index) => `
-                  <p>
-                    On ${commit.datetime.toLocaleString("en", { dateStyle: "full", timeStyle: "short" })}, I made
-                    <a href="${commit.url}" target="_blank">
-                      ${index > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'}
-                    </a>.
-                    I edited ${commit.totalLines} lines across ${d3.rollups(commit.lines, D => D.length, d => d.file).length} files.
-                    Then I looked over all I had made, and I saw that it was very good.
-                  </p>
-                `)
-                .style('position', 'absolute')
-                .style('top', (_, idx) => `${idx * ITEM_HEIGHT}px`);
+  .data(newCommitSlice)
+  .enter()
+  .append('div')
+  .html((commit, index) => `
+    <p>
+      On <a href="${commit.url}" target="_blank">${commit.datetime.toLocaleString("en", { dateStyle: "full", timeStyle: "short" })}</a>,
+      ${commitNarrative2(commit, index)}
+    </p>
+  `)
+  .style('position', 'absolute')
+  .style('top', (_, idx) => `${idx * ITEM_HEIGHT}px`);
 }
 
 // Update file display based on the current commit slice
