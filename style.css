@@ -10,7 +10,7 @@ body {
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui; 
-    max-width: 100ch; /* Set the maximum width of the body */
+    max-width: 150ch; /* Set the maximum width of the body */
     margin-inline: auto;  /* Center the body */
     padding: 10px;  /* Add some padding around the body */
     accent-color: var(--color-accent); /* Set the accent color */
@@ -47,18 +47,6 @@ nav {
     border-bottom: 0.3em solid oklch(80% 3% 200); /* Add a border to the bottom of the link */
   }
 }
-
-/* input, textarea, button {
-  font: inherit;
-  display: block;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-label {
-  display: block;
-  margin-block: 10px;
-} */
 
 form {
   display:grid;
@@ -434,7 +422,12 @@ circle.selected {
   grid-template-columns: subgrid;
 }
 
-/* feel free to play with this to make your scrolly more seemless with your plot */
+#scrollytelling-2 {
+  display: grid;
+  grid-template-columns: 50% 50%; /* or use 1fr 1fr for equal columns */
+  gap: 2em;  /* space between the scroll container and chart */
+}
+
 #scroll-container {
   grid-column: 1;
   position: relative;
@@ -445,11 +438,26 @@ circle.selected {
   margin-bottom: 50px;
 }
 
+#scroll-container-2 {
+  grid-column: 1;
+  position: relative;
+  width: 95%;
+  height: 750px;
+  overflow-y: scroll;
+  border: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
 #chart {
   grid-column: 2;
 }
 
-#spacer {
+#chart-2 {
+  grid-column: 2;
+
+}
+
+#spacer, #spacer-2 {
   position: absolute;
   top: 0;
   left: 0;
@@ -458,7 +466,7 @@ circle.selected {
   pointer-events: none;
 }
 
-#items-container {
+#items-container, #items-container-2 {
   position: relative;
   top: 0;
   left: 0;

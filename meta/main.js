@@ -17,6 +17,10 @@ const scrollContainer = d3.select('#scroll-container');
 const spacer = d3.select('#spacer');
 const itemsContainer = d3.select('#items-container');
 
+const scrollContainer2 = d3.select('#scroll-container-2');
+const spacer2 = d3.select('#spacer-2');
+const itemsContainer2 = d3.select('#items-container-2');
+
 // loadData waits for the CSV to be loaded, then processes and sorts commits.
 // After processing commits, it initializes the scrolling-related variables.
 async function loadData() {
@@ -38,9 +42,11 @@ async function loadData() {
   NUM_ITEMS = commits.length;                    
   totalHeight = (NUM_ITEMS - VISIBLE_COUNT) * ITEM_HEIGHT; 
   spacer.style('height', `${totalHeight}px`);
+  spacer2.style('height', `${totalHeight}px`);
 
   // Ensure some items show up right away
   renderItems(0);
+  renderItems2(0);
 }
 
 // Set up the DOMContentLoaded event so that we load data first
@@ -53,6 +59,12 @@ document.addEventListener('DOMContentLoaded', async () => {
     let startIndex = Math.floor(scrollTop / ITEM_HEIGHT);
     startIndex = Math.max(0, Math.min(startIndex, commits.length - VISIBLE_COUNT));
     renderItems(startIndex);
+  });
+  scrollContainer2.on('scroll', () => {
+    const scrollTop = scrollContainer2.property('scrollTop');
+    let startIndex = Math.floor(scrollTop / ITEM_HEIGHT);
+    startIndex = Math.max(0, Math.min(startIndex, commits.length - VISIBLE_COUNT));
+    renderItems2(startIndex);
   });
 });
 
@@ -430,8 +442,6 @@ function renderItems(startIndex) {
                 .data(newCommitSlice)
                 .enter()
                 .append('div')
-                .each((commit, index) => {
-                })
                 .html((commit, index) => `
                   <p>
                     On ${commit.datetime.toLocaleString("en", { dateStyle: "full", timeStyle: "short" })}, I made
@@ -446,17 +456,61 @@ function renderItems(startIndex) {
                 .style('top', (_, idx) => `${idx * ITEM_HEIGHT}px`);
 }
 
-function displayCommitFiles() {
-  const lines = filteredCommits.flatMap((d) => d.lines);
+function renderItems2(startIndex) {
+  // Clear things off
+  itemsContainer2.selectAll('div').remove();
+  const endIndex = Math.min(startIndex + VISIBLE_COUNT, commits.length);
+  let newCommitSlice = commits.slice(startIndex, endIndex);
+
+  // Render file size info in the dot plot container (#chart-2)
+  displayCommitFiles(newCommitSlice, '#chart-2');
+  
+  // Render commit items into the scrolly container 2 as before
+  itemsContainer2.selectAll('div')
+                .data(newCommitSlice)
+                .enter()
+                .append('div')
+                .html((commit, index) => `
+                  <p>
+                    On ${commit.datetime.toLocaleString("en", { dateStyle: "full", timeStyle: "short" })}, I made
+                    <a href="${commit.url}" target="_blank">
+                      ${index > 0 ? 'another glorious commit' : 'my first commit, and it was glorious'}
+                    </a>.
+                    I edited ${commit.totalLines} lines across ${d3.rollups(commit.lines, D => D.length, d => d.file).length} files.
+                    Then I looked over all I had made, and I saw that it was very good.
+                  </p>
+                `)
+                .style('position', 'absolute')
+                .style('top', (_, idx) => `${idx * ITEM_HEIGHT}px`);
+}
+
+// Update file display based on the current commit slice
+function displayCommitFiles(commitSlice, containerSelector = '.files') {
+  const lines = commitSlice.flatMap(d => d.lines);
   let fileTypeColors = d3.scaleOrdinal(d3.schemeTableau10);
-  let files = d3.groups(lines, (d) => d.file).map(([name, lines]) => {
-    return { name, lines };
-  });
-  files = d3.sort(files, (d) => -d.lines.length);
-  d3.select('.files').selectAll('div').remove();
-  let filesContainer = d3.select('.files').selectAll('div').data(files).enter().append('div');
-  filesContainer.append('dt').html(d => `<code>${d.name}</code><small>${d.lines.length} lines</small>`);
+  let files = d3.groups(lines, d => d.file)
+                .map(([name, lines]) => ({ name, lines }));
+  files = d3.sort(files, (a, b) => b.lines.length - a.lines.length);
+
+  // Remove existing content in the container
+  d3.select(containerSelector).selectAll('div').remove();
+
+  // For each file, create a container that is block-level so it starts on a new line.
+  let filesContainer = d3.select(containerSelector)
+                         .selectAll('div')
+                         .data(files)
+                         .enter()
+                         .append('div')
+                         .style('display', 'block')                // Stack files vertically
+                         .style('margin-bottom', '1em');            // Add space between files
+
+  filesContainer.append('dt')
+                .html(d => `<code>${d.name}</code><br><small>${d.lines.length} lines</small>`);
+
+  // Append a dd container inside each file container. Use flex to lay out the dots horizontally.
   filesContainer.append('dd')
+                .style('display', 'flex')          // horizontal layout for dots
+                .style('flex-wrap', 'wrap')        // allow dots to wrap
                 .selectAll('div')
                 .data(d => d.lines)
                 .enter()
