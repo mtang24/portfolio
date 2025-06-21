@@ -4,7 +4,7 @@
         "year": "2025",
         "image": "/images/block_demos.png",
         "description": "This series of videos demonstrates various programming concepts such as loops and conditional statements in block-based languages such as Snap, geared for K-12 students.",
-        "url": "https://mtang24.github.io/macros/"
+        "url": "https://mtang24.github.io/computing/"
     },
     {
         "title": "Macronutrient Data Scrollytelling",
@@ -17,7 +17,7 @@
         "title": "Visualizing Bike Traffic in Boston",
         "year": "2025",
         "image": "/images/boston_bike.png",
-        "description": "Using d3.js, I implemented an interactive map visualization of bike traffic in the Boston area during different times of the day.",
+        "description": "Using d3.js, I implemented an interactive map visualization of bike traffic in the Boston, MA area during different times of the day.",
         "url": "https://mtang24.github.io/bike_traffic/"
     },
     {
