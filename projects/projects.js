@@ -7,11 +7,6 @@ const projectsContainer = document.querySelector('.projects');  // Get the conta
 // Render the projects
 renderProjects(projects, projectsContainer, 'h2');
 
-// Update the projects count in the <h1>
-const projectCount = projects.length;  // Count the projects
-const header = document.querySelector('h1.projects-title');  // Find the <h1> element
-header.textContent = ` My Projects (${projectCount})`;  // Update the <h1> to display count
-
 // Function to apply styles to the year elements
 function applyYearStyles() {
   projectsContainer.querySelectorAll('.project-year').forEach(yearElement => {

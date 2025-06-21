@@ -1,4 +1,10 @@
-[
+[   {
+        "title": "Visualizing Macronutrient Data",
+        "year": "2025",
+        "image": "/images/macros.png",
+        "description": "I helped create a scrollytelling article that provides information on macronutrient and metabolic data using Javascript/CSS/HTML.",
+        "url": "https://mtang24.github.io/macros/"
+    },
     {
         "title": "Visualizing Bike Traffic in Boston",
         "year": "2025",

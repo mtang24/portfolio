@@ -8,9 +8,9 @@ let pages = [
   { url: '', title: 'Home' },
   { url: 'projects/', title: 'Projects' },
   // add the rest of your pages here
-  { url: 'resume/', title: 'Resume' },
-  { url: 'contact/', title: 'Contact' },
-  { url: 'meta/', title: 'Meta' },
+  // { url: 'resume/', title: 'Resume' },
+  // { url: 'contact/', title: 'Contact' },
+  { url: 'meta/', title: 'Page Stats' },
   { url: 'https://github.com/mtang24', title: 'GitHub' },
 ];
 
