@@ -1,5 +1,13 @@
-[   {
-        "title": "Visualizing Macronutrient Data",
+[   
+    {
+        "title": "Block-based Programming Demos",
+        "year": "2025",
+        "image": "/images/block_demos.png",
+        "description": "This series of videos demonstrates various programming concepts such as loops and conditional statements in block-based languages such as Snap, geared for K-12 students.",
+        "url": "https://mtang24.github.io/macros/"
+    },
+    {
+        "title": "Macronutrient Data Scrollytelling",
         "year": "2025",
         "image": "/images/macros.png",
         "description": "I helped create a scrollytelling article that provides information on macronutrient and metabolic data using Javascript/CSS/HTML.",
@@ -20,18 +28,6 @@
         "url": "https://mtang24.github.io/mouse_activity/"
     },
     {
-        "title": "Truthful vs Deceptive Data Visualizations",
-        "year": "2025",
-        "image": "/images/earnest.png",
-        "description": "This project explores how visualization design shapes data interpretation, comparing a truthful and a deceptive representation of mouse activity data. It highlights the importance of clear labeling and framing in preventing misinterpretation."
-    },
-    {
-        "title": "Expository Data Viz on Climate Data",
-        "year": "2025",
-        "image": "/images/expository.png",
-        "description": "This project explores how sunshine patterns relate to travel demand in San Diego and San Francisco using percent change comparisons over time. The visualization emphasizes seasonal differences while ensuring clear and accurate trend comparisons."
-    },
-    {
         "title": "Power Outage Data Analysis",
         "year": "2024",
         "image": "/images/power_outages.png",
@@ -46,47 +42,11 @@
         "url": "https://mtang24.github.io/online-shopping-consumer-behavior/"
     },
     {
-        "title": "Annual Air Pollution Predictive Modeling",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
-    },
-    {
         "title": "Spotify Charts Data Analysis",
         "year": "2024",
         "image": "/images/spotify.png",
         "description": "This project analyzes trends in the top 200 weekly songs on Spotify for a year. Using pandas and the Spotify Web API, I explore song attributes such as explicitness and genre to see if they are associated with their chart rank.",
         "url": "https://mtang24.github.io/spotify/"
-    },
-    {
-        "title": "Credit Card Machine Learning Analysis",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
-    },
-    {
-        "title": "Convolutional Neural Networks Study",
-        "year": "2024",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
-    },
-    {
-        "title": "Parking and Traffic Data Analysis",
-        "year": "2023",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
-    },
-    {
-        "title": "Supervised Machine Learning Empirical Study",
-        "year": "2023",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
-    },
-    {
-        "title": "Design Methodology Analysis",
-        "year": "2023",
-        "image": "https://dsc106.com/labs/lab02/images/empty.svg",
-        "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam dolor quos, quod assumenda explicabo odio, nobis ipsa laudantium quas eum veritatis ullam sint porro minima modi molestias doloribus cumque odit."
     },
     {
         "title": "Software Tool Tutorials",

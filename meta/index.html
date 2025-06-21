@@ -8,21 +8,14 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Meta</h1>
+    <h1>Page Stats</h1>
 
     <p>This page includes stats about the code of this website.</p>
 
     <div id="stats"></div>
 
     <h2>Commits by time of day</h2>
-    <div id="scrollytelling">
-        <div id="scroll-container">
-            <div id="spacer"></div>
-            <div id="items-container"></div>
-        </div>
-        <!-- scatterplot div -->
-        <div id="chart"></div>
-    </div>
+    <div id="chart"></div>
 
     <dl id="commit-tooltip" class="info tooltip">
         <dt>Commit</dt>
@@ -37,18 +30,6 @@
         <dt>Time</dt>
         <dd id="commit-time"></dd>
     </dl>
-
-    <dl class="files"></dl>
-
-    <h2>File size over time</h2>
-    <div id="scrollytelling-2">
-        <div id="scroll-container-2">
-            <div id="spacer-2"></div>
-            <div id="items-container-2"></div>
-        </div>
-        <!-- dot plot div -->
-        <div id="chart-2"></div>
-    </div>
 
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="../global.js" type="module"></script>
