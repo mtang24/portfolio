@@ -28,6 +28,21 @@
         "url": "https://mtang24.github.io/mouse_activity/"
     },
     {
+        "title": "Truthful vs Deceptive Data Visualizations",
+        "year": "2025",
+        "image": "/images/earnest.png",
+        "description": "This project explores how visualization design shapes data interpretation, comparing a truthful and a deceptive representation of mouse activity data. It highlights the importance of clear labeling and framing in preventing misinterpretation.",
+        "url": "https://mtang24.github.io/data_viz/comparison"
+
+    },
+    {
+        "title": "Expository Data Viz on Climate Data",
+        "year": "2025",
+        "image": "/images/expository.png",
+        "description": "This project explores how sunshine patterns relate to travel demand in San Diego and San Francisco using percent change comparisons over time. The visualization emphasizes seasonal differences while ensuring clear and accurate trend comparisons.",
+        "url": "https://mtang24.github.io/data_viz/expository"
+    },
+    {
         "title": "Power Outage Data Analysis",
         "year": "2024",
         "image": "/images/power_outages.png",
@@ -42,11 +57,32 @@
         "url": "https://mtang24.github.io/online-shopping-consumer-behavior/"
     },
     {
+        "title": "Annual Air Pollution Predictive Modeling",
+        "year": "2024",
+        "image": "/images/climate.png",
+        "description": "This project uses machine learning to predict annual PM2.5 air pollution levels across the U.S. It incorporates climate regions to improve accuracy, especially in areas with limited monitoring.",
+        "url": "https://mtang24.github.io/air_pollution/"
+    },
+    {
         "title": "Spotify Charts Data Analysis",
         "year": "2024",
         "image": "/images/spotify.png",
         "description": "This project analyzes trends in the top 200 weekly songs on Spotify for a year. Using pandas and the Spotify Web API, I explore song attributes such as explicitness and genre to see if they are associated with their chart rank.",
         "url": "https://mtang24.github.io/spotify/"
+    },
+    {
+        "title": "Credit Card Machine Learning Analysis",
+        "year": "2024",
+        "image": "/images/cc_clusters.png",
+        "description": "This project uses unsupervised machine learning to analyze credit card usage, clustering customers based on their spending patterns. It aims to identify distinct customer segments and understand their behaviors, which can help businesses/banks tailor their services/offerings.",
+        "url": "https://mtang24.github.io/card_clusters/"
+    },
+    {
+        "title": "Parking and Traffic Data Analysis",
+        "year": "2023",
+        "image": "/images/traffic.png",
+        "description": "This project analyzes parking occupancy levels at UC San Diego and traffic collision data from nearby streets to understand how parking availability affects traffic patterns. It uses exploratory data analysis techniques to present findings and insights.",
+        "url": "https://mtang24.github.io/parking_traffic/"
     },
     {
         "title": "Software Tool Tutorials",
