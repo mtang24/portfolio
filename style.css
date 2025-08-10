@@ -248,13 +248,13 @@ select {
 .legend li {
   display: flex;
   gap: 0.5em;
+  color: #222;
 
   em {
     color: #4d4d4d; /* Set your desired color here */
     font-style: italic; /* Make the text italic */
   }
 }
-
 .container {
   display: flex;
   align-items: center;
