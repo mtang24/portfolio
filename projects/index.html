@@ -10,17 +10,18 @@
 <body>
     <h1 class="projects-title"> My Projects</h1>
 
-    <input
-        class="searchBar"
-        type="search"
-        aria-label="Search projects"
-        placeholder="🔍 Search projects…"
-    />
-
-    <div class="selector-container">
-        <span class="filter-label">Filter by:</span>
-        <button id="filter-language" class="filter-btn selected">Language</button>
-        <button id="filter-year" class="filter-btn">Year</button>
+    <div class="search-selector-row">
+        <input
+            class="searchBar"
+            type="search"
+            aria-label="Search projects"
+            placeholder="🔍 Search projects…"
+        />
+        <div class="selector-container">
+            <span class="filter-label">Click a pie slice to filter between languages or years:</span>
+            <button id="filter-language" class="filter-btn selected">Language</button>
+            <button id="filter-year" class="filter-btn">Year</button>
+        </div>
     </div>
 
     <div class="container">
