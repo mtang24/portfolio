@@ -1,10 +1,18 @@
 import { fetchJSON, renderProjects, fetchGitHubData } from './global.js';
 const projects = await fetchJSON('./lib/projects.json');
-const latestProjects = projects.slice(0, 3);
+
+// List your featured project titles here (update as needed)
+const FEATURED_PROJECT_TITLES = [
+  "Macronutrient Data Scrollytelling",
+  "Visualizing Mice Activity",
+  "Power Outage Data Analysis"
+];
+
+const featuredProjects = projects.filter(p => FEATURED_PROJECT_TITLES.includes(p.title));
 
 const projectsContainer = document.querySelector('.projects');
 
-renderProjects(latestProjects, projectsContainer, 'h2');
+renderProjects(featuredProjects, projectsContainer, 'h2');
 
 const githubData = await fetchGitHubData('mtang24');
 const profileStats = document.querySelector('#profile-stats');
