@@ -1,3 +1,30 @@
+/* Selector buttons and filter label styling */
+.selector-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 1em;
+  justify-content: flex-end;
+  width: 100%;
+}
+.filter-label {
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+.filter-btn {
+  background: #eee;
+  border: 1px solid #bbb;
+  color: #333;
+  padding: 0.4em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.filter-btn.selected {
+  background: #0078d4;
+  color: #fff;
+  border-color: #0078d4;
+}
 :root {
   --color-accent: #7bcf83;  /* Define the color */
 }
@@ -232,6 +259,15 @@ select {
   display: flex;
   align-items: center;
   gap: 100px;
+}
+
+.right-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1 1 0;
+  width: 100%;
+  max-width: 600px;
 }
 
 .hidden {
@@ -529,10 +565,4 @@ circle.selected {
 }
 .legend .swatch {
   border: 1px solid #ccc;
-}
-.legend li {
-  color: #222;
-}
-.legend em {
-  color: #4d4d4d;
 }

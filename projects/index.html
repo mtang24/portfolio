@@ -17,11 +17,15 @@
         placeholder="🔍 Search projects…"
     />
 
-    <div class="container">
+    <div class="selector-container">
+        <span class="filter-label">Filter by:</span>
+        <button id="filter-language" class="filter-btn selected">Language</button>
+        <button id="filter-year" class="filter-btn">Year</button>
+    </div>
 
+    <div class="container">
         <svg id="projects-plot" viewBox="-50 -50 100 100">
         </svg>
-
         <ul class="legend">
         </ul>
     </div>
