@@ -4,91 +4,104 @@
         "year": "2025",
         "image": "/images/block_demos.png",
         "description": "This series of videos demonstrates various programming concepts such as loops and conditional statements in block-based languages such as Snap, geared for K-12 students.",
-        "url": "https://mtang24.github.io/computing/"
+        "url": "https://mtang24.github.io/computing/",
+        "languages": ["Snap", "Scratch"]
     },
     {
         "title": "Macronutrient Data Scrollytelling",
         "year": "2025",
         "image": "/images/macros.png",
         "description": "I helped create a scrollytelling article that provides information on macronutrient and metabolic data using Javascript/CSS/HTML.",
-        "url": "https://mtang24.github.io/macros/"
+        "url": "https://mtang24.github.io/macros/",
+        "languages": ["JavaScript", "HTML", "CSS", "Python"]
     },
     {
         "title": "Visualizing Bike Traffic in Boston",
         "year": "2025",
         "image": "/images/boston_bike.png",
         "description": "Using d3.js, I implemented an interactive map visualization of bike traffic in the Boston, MA area during different times of the day.",
-        "url": "https://mtang24.github.io/bike_traffic/"
+        "url": "https://mtang24.github.io/bike_traffic/",
+        "languages": ["JavaScript", "HTML", "CSS"]
     },
     {
         "title": "Visualizing Mice Activity",
         "year": "2025",
         "image": "/images/mouse_activity.png",
         "description": "This visualization displays temperature and activity data from a 14-day study on mice using d3.js. Users can use a dropdown menu and buttons to customize and filter based on measure, gender, and time of day.",
-        "url": "https://mtang24.github.io/mouse_activity/"
+        "url": "https://mtang24.github.io/mouse_activity/",
+        "languages": ["JavaScript", "HTML", "CSS"]
+
     },
     {
         "title": "Truthful vs Deceptive Data Visualizations",
         "year": "2025",
         "image": "/images/earnest.png",
         "description": "This project explores how visualization design shapes data interpretation, comparing a truthful and a deceptive representation of mouse activity data. It highlights the importance of clear labeling and framing in preventing misinterpretation.",
-        "url": "https://mtang24.github.io/data_viz/comparison"
-
+        "url": "https://mtang24.github.io/data_viz/comparison",
+        "languages": ["Python"]
     },
     {
         "title": "Expository Data Viz on Climate Data",
         "year": "2025",
         "image": "/images/expository.png",
         "description": "This project explores how sunshine patterns relate to travel demand in San Diego and San Francisco using percent change comparisons over time. The visualization emphasizes seasonal differences while ensuring clear and accurate trend comparisons.",
-        "url": "https://mtang24.github.io/data_viz/expository"
+        "url": "https://mtang24.github.io/data_viz/expository",
+        "languages": ["Python"]
     },
     {
         "title": "Power Outage Data Analysis",
         "year": "2024",
         "image": "/images/power_outages.png",
         "description": "This data analysis investigates what influences the cause and duration of major U.S. power outages. We used historical data from January 2000 to July 2016 to uncover trends and understand how we can inform more resilient infrastructure planning.",
-        "url": "https://mtang24.github.io/US_Power_Outage_Analysis/"
+        "url": "https://mtang24.github.io/US_Power_Outage_Analysis/",
+        "languages": ["Python"]
     },
     {
         "title": "Online Shopping Consumer Behavior Data Analysis",
         "year": "2024",
         "image": "/images/online_shopping.png",
         "description": "The goal of the analysis was to explore how the time of a consumer's visit to an e-commerce website could be associated with the number of marketing tactics used on a product page.",
-        "url": "https://mtang24.github.io/online-shopping-consumer-behavior/"
+        "url": "https://mtang24.github.io/online-shopping-consumer-behavior/",
+        "languages": ["R"]
     },
     {
         "title": "Annual Air Pollution Predictive Modeling",
         "year": "2024",
         "image": "/images/climate.png",
         "description": "This project uses machine learning to predict annual PM2.5 air pollution levels across the U.S. It incorporates climate regions to improve accuracy, especially in areas with limited monitoring.",
-        "url": "https://mtang24.github.io/air_pollution/"
+        "url": "https://mtang24.github.io/air_pollution/",
+        "languages": ["R"]
     },
     {
         "title": "Spotify Charts Data Analysis",
         "year": "2024",
         "image": "/images/spotify.png",
         "description": "This project analyzes trends in the top 200 weekly songs on Spotify for a year. Using pandas and the Spotify Web API, I explore song attributes such as explicitness and genre to see if they are associated with their chart rank.",
-        "url": "https://mtang24.github.io/spotify/"
+        "url": "https://mtang24.github.io/spotify/",
+        "languages": ["Python"]
     },
     {
         "title": "Credit Card Machine Learning Analysis",
         "year": "2024",
         "image": "/images/cc_clusters.png",
         "description": "This project uses unsupervised machine learning to analyze credit card usage, clustering customers based on their spending patterns. It aims to identify distinct customer segments and understand their behaviors, which can help businesses/banks tailor their services/offerings.",
-        "url": "https://mtang24.github.io/card_clusters/"
+        "url": "https://mtang24.github.io/card_clusters/",
+        "languages": ["Python"]
     },
     {
         "title": "Parking and Traffic Data Analysis",
         "year": "2023",
         "image": "/images/traffic.png",
         "description": "This project analyzes parking occupancy levels at UC San Diego and traffic collision data from nearby streets to understand how parking availability affects traffic patterns. It uses exploratory data analysis techniques to present findings and insights.",
-        "url": "https://mtang24.github.io/parking_traffic/"
+        "url": "https://mtang24.github.io/parking_traffic/",
+        "languages": ["Python"]
     },
     {
         "title": "Software Tool Tutorials",
         "year": "2022",
         "image": "/images/software_tools.png",
         "description": "This website contains tutorials on various software tools used in CSE 15L at UC San Diego, such as directory commands and the markdown language.",
-        "url": "https://mtang24.github.io/cse15l-lab-reports/"
+        "url": "https://mtang24.github.io/cse15l-lab-reports/",
+        "languages": ["Java"]
     }
 ]

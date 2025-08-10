@@ -123,6 +123,15 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       <img src="${imageSrc}" alt="${project.title}">
       <p>${project.description}</p>
       <p class="project-year">${project.year}</p>
+      ${project.languages && project.languages.length ? `
+        <ul class="project-languages">
+          ${project.languages.map(lang => `
+            <li class="language-tag" data-lang="${lang}">
+              <span class="language-dot"></span> ${lang}
+            </li>
+          `).join('')}
+        </ul>
+      ` : ''}
     `;
     
     containerElement.appendChild(article);

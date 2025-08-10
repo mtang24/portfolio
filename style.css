@@ -480,3 +480,59 @@ circle.selected {
   box-sizing: border-box;
   border-bottom: 2px solid #eee;
 }
+
+/* Language tag styles */
+.project-languages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  list-style: none;
+  margin: 0.5em 0 0 0;
+  padding: 0;
+}
+.language-tag {
+  display: flex;
+  align-items: center;
+  font-size: 0.95em;
+  background: #f6f6f6;
+  border-radius: 1em;
+  padding: 0.2em 0.7em 0.2em 0.4em;
+  margin: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+  border: 1px solid #ddd;
+  color: #222;
+}
+.language-dot {
+  display: inline-block;
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  vertical-align: middle;
+  background: #bbb;
+  border: 1px solid #ccc;
+}
+.language-tag[data-lang="Python"]   .language-dot { background: #3572A5; }
+.language-tag[data-lang="HTML"]     .language-dot { background: #e34c26; }
+.language-tag[data-lang="JavaScript"] .language-dot { background: #f1e05a; }
+.language-tag[data-lang="CSS"]      .language-dot { background: #563d7c; }
+.language-tag[data-lang="Java"]     .language-dot { background: #b07219; }
+.language-tag[data-lang="R"]        .language-dot { background: #198CE7; }
+.language-tag[data-lang="Snap"] .language-dot { background: #9147ff; }
+.language-tag[data-lang="Scratch"] .language-dot { background: #ffae42; }
+/* fallback for unknown languages */
+.language-tag .language-dot { background: #bbb; }
+
+.legend {
+  background-color: #dedddfdc;
+  border-color: #000;
+}
+.legend .swatch {
+  border: 1px solid #ccc;
+}
+.legend li {
+  color: #222;
+}
+.legend em {
+  color: #4d4d4d;
+}
