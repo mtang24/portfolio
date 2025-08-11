@@ -532,38 +532,38 @@ circle.selected {
   margin: 0.5em 0 0 0;
   padding: 0;
 }
+
 .language-tag {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   font-size: 0.95em;
-  background: #f6f6f6;
   border-radius: 1em;
-  padding: 0.2em 0.7em 0.2em 0.4em;
+  padding: 0.2em 0.7em;
   margin: 0;
   box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   border: 1px solid #ddd;
-  color: #222;
+  font-weight: 500;
+  color: #000;
 }
-.language-dot {
-  display: inline-block;
-  width: 0.7em;
-  height: 0.7em;
-  border-radius: 50%;
-  margin-right: 0.5em;
-  vertical-align: middle;
-  background: #bbb;
-  border: 1px solid #ccc;
-}
-.language-tag[data-lang="Python"]   .language-dot { background: #3572A5; }
-.language-tag[data-lang="HTML"]     .language-dot { background: #e34c26; }
-.language-tag[data-lang="JavaScript"] .language-dot { background: #f1e05a; }
-.language-tag[data-lang="CSS"]      .language-dot { background: #563d7c; }
-.language-tag[data-lang="Java"]     .language-dot { background: #b07219; }
-.language-tag[data-lang="R"]        .language-dot { background: #198CE7; }
-.language-tag[data-lang="Snap"] .language-dot { background: #9147ff; }
-.language-tag[data-lang="Scratch"] .language-dot { background: #ffae42; }
-/* fallback for unknown languages */
-.language-tag .language-dot { background: #bbb; }
+
+/* Updated for contrast: white text on dark backgrounds, black text on light backgrounds */
+
+/* All language tags use black text. Backgrounds are lightened for readability but remain relevant. */
+
+/* All language tags use white text. Backgrounds are bright and relevant. Python and R are more distinct. */
+
+/* All language tags use white text. Backgrounds are even brighter for maximum contrast. */
+
+/* GitHub official language colors, adjusted for white text contrast */
+.language-tag[data-lang="Python"]   { background: #3572A5; color: #fff; }
+.language-tag[data-lang="HTML"]     { background: #e34c26; color: #fff; }
+.language-tag[data-lang="JavaScript"] { background: #c9b037; color: #fff; }
+.language-tag[data-lang="CSS"]      { background: #563d7c; color: #fff; }
+.language-tag[data-lang="Java"]     { background: #b07219; color: #fff; }
+.language-tag[data-lang="R"]        { background: #198CE7; color: #fff; }
+.language-tag[data-lang="Snap"]     { background: #9147ff; color: #fff; }
+.language-tag[data-lang="Scratch"]  { background: #e69c2e; color: #fff; }
+.language-tag { background: #444; color: #fff; } /* fallback for unknown languages */
 
 .legend {
   background-color: #dedddfdc;

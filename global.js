@@ -126,9 +126,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       ${project.languages && project.languages.length ? `
         <ul class="project-languages">
           ${project.languages.map(lang => `
-            <li class="language-tag" data-lang="${lang}">
-              <span class="language-dot"></span> ${lang}
-            </li>
+            <li class="language-tag" data-lang="${lang}">${lang}</li>
           `).join('')}
         </ul>
       ` : ''}

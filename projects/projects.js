@@ -29,16 +29,16 @@ let searchInput = document.querySelector('.searchBar');
 
 let selectedIndex = -1;
 
-// Language color mapping (should match CSS)
+// Language color mapping (matches CSS GitHub colors, adjusted for pie chart contrast)
 const languageColors = {
   'Python': '#3572A5',
   'HTML': '#e34c26',
-  'JavaScript': '#f1e05a',
+  'JavaScript': '#c9b037',
   'CSS': '#563d7c',
   'Java': '#b07219',
   'R': '#198CE7',
   'Snap': '#9147ff',
-  'Scratch': '#ffae42',
+  'Scratch': '#e69c2e',
 };
 
 function renderPieChart(projectsGiven) {
