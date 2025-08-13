@@ -3,9 +3,9 @@ const projects = await fetchJSON('./lib/projects.json');
 
 // List your featured project titles here (update as needed)
 const FEATURED_PROJECT_TITLES = [
-  "Macronutrient Data Scrollytelling",
   "Visualizing Mice Activity",
-  "Power Outage Data Analysis"
+  "Power Outage Data Analysis",
+  "Spotify Charts Data Analysis"
 ];
 
 const featuredProjects = projects.filter(p => FEATURED_PROJECT_TITLES.includes(p.title));
